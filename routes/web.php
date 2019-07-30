@@ -18,4 +18,10 @@ Route::get('/', function () {
 Route::get('/contacs', function () {
     return view('contacs');
 });
+
 Route::get('/news', 'NewsController@show');
+
+Route::get('/login', 'Auth\LoginController@form');
+Route::post('/login', 'Auth\LoginController@login');
+
+Route::get('/adresses', 'AdressesController@index');
