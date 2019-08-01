@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
         <!-- Styles -->
         <style>
@@ -72,8 +73,50 @@
                 <div>
                 	<h2>Добавить адрес</h2>
                 	<form action="/adresses" method="POST">
-                		
+                		<div>
+                            <input type="text" name="city_name" placeholder="Наименование пункта" required>      
+                        </div>
+                        <div>
+                            <input type="text" name="street" placeholder="Улица" required>      
+                        </div>
+                        <div>
+                            <input type="text" name="house" placeholder="Номер дома" required>      
+                        </div>
+                        <div>
+                            <input type="text" name="floor" placeholder="Квартира">      
+                        </div>
+                        <div>
+                            <input type="submit" value="Сохранить" class="btn btn-primary">
+                        </div>
                 	</form>
+                </div>
+                <div>
+                    <h2>Список адресов</h2>
+                    <table class="table table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Номер</th>
+                                <th>Наслённый пункт</th>
+                                <th>Улица</th>
+                                <th>Дом</th>
+                                <th>Номер квартиры</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php  
+                                foreach ($items as $item) {
+                                    ?>
+                                    <tr>
+                                        <td><?=$item->id ?></td>
+                                        <td><?=$item->city_name ?></td>
+                                        <td><?=$item->street ?></td>
+                                        <td><?=$item->house ?></td>
+                                        <td><?=$item->floor ?></td>
+                                    </tr>
+                                <?php    }  
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

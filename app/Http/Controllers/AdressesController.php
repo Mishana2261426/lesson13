@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Address;
+
 class AdressesController extends Controller {
 
 	public function index() {
@@ -11,6 +13,21 @@ class AdressesController extends Controller {
 			return redirect('/login');
 		}
 
-		return view('adresses');
+		$query = Address::query();
+		$items = $query->get();
+
+		return view('adresses', ['items' => $items]);
+	}
+
+
+
+	public function store() {
+		$data = request()->all();
+
+		$model = new Address();
+		$model->fill($data);
+		$model->save();
+
+		return view('/adresses');
 	}
 }

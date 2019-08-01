@@ -25,3 +25,5 @@ Route::get('/login', 'Auth\LoginController@form');
 Route::post('/login', 'Auth\LoginController@login');
 
 Route::get('/adresses', 'AdressesController@index');
+Route::post('/adresses', 'AdressesController@store');
+
